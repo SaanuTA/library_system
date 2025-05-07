@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Library Management System - Home</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(135deg, #f857a6, #ff5858);
+      background-size: cover;
+      color: #333;
+    }
+
+    header {
+      background: linear-gradient(to right, #00c9ff, #92fe9d);
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      color: white;
+      border-bottom-left-radius: 18px;
+      border-bottom-right-radius: 18px;
+    }
+
+    .logo {
+      font-size: 30px;
+      font-family: 'Playfair Display', serif;
+      text-shadow: 1px 1px 2px #333;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 15px;
+    }
+
+    .nav-btn {
+      background: linear-gradient(to right, #ff416c, #ff4b2b);
+      border: none;
+      padding: 10px 20px;
+      border-radius: 30px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 12px rgba(255, 65, 108, 0.4);
+    }
+
+    .nav-btn:hover {
+      transform: scale(1.05);
+      box-shadow: 0 6px 20px rgba(255, 65, 108, 0.6);
+    }
+
+    .nav-btn.disabled {
+      pointer-events: none;
+      opacity: 0.9;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 70px 20px 40px;
+      color: #fff;
+      text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    }
+
+    .hero h1 {
+      font-size: 50px;
+      margin-bottom: 20px;
+      animation: fadeInDown 1.2s ease-out;
+    }
+
+    .hero p {
+      font-size: 20px;
+      max-width: 800px;
+      margin: 0 auto;
+      font-weight: 500;
+      animation: fadeInUp 1.2s ease-out;
+    }
+
+    @keyframes fadeInDown {
+      from { opacity: 0; transform: translateY(-30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes fadeInUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .gallery {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      padding: 40px 20px;
+    }
+
+    .gallery img {
+      width: 320px;
+      height: 220px;
+      object-fit: cover;
+      border-radius: 18px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery img:hover {
+      transform: scale(1.05);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.45);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      font-size: 14px;
+      color: #fff;
+      background: linear-gradient(to right, #00c9ff, #92fe9d);
+      margin-top: 40px;
+      border-top-left-radius: 18px;
+      border-top-right-radius: 18px;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Library Management System</div>
+  <div class="nav-links">
+    <a href="/" class="nav-btn disabled">Home</a>
+    <a href="/gallery" class="nav-btn">Gallery</a>
+    <a href="/login" class="nav-btn">Login</a>
+    <a href="/signup" class="nav-btn">Sign Up</a>
+  </div>
+</header>
+
+<section class="hero">
+  <h1>Welcome to the Library Management System</h1>
+  <p>Explore a world of knowledge and imagination through beautiful libraries and efficient library management.</p>
+</section>
+
+<section class="gallery">
+  <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=800&q=80" alt="Library Shelf">
+  <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?auto=format&fit=crop&w=800&q=80" alt="Books Stack">
+  <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=800&q=80" alt="Open Book">
+  <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=800&q=80" alt="Curved Library">
+</section>
+
+<footer>
+  &copy; 2025 Library Management System. All rights reserved.
+</footer>
+
+</body>
+</html>
+

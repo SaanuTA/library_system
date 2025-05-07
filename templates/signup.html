@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sign Up - Library Management System</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Quicksand', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(135deg, #fceabb, #f8b500, #e96443, #904e95);
+      background-size: 400% 400%;
+      animation: bgMove 20s ease infinite;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+    }
+
+    @keyframes bgMove {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .signup-container {
+      background: white;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+      width: 100%;
+      max-width: 500px;
+      animation: fadeIn 1s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    h2 {
+      font-family: 'Playfair Display', serif;
+      text-align: center;
+      margin-bottom: 30px;
+      color: #333;
+    }
+
+    .form-group {
+      margin-bottom: 20px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 8px;
+      font-weight: 600;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px 16px;
+      border: 1px solid #ccc;
+      border-radius: 12px;
+      font-size: 16px;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 12px;
+      background: linear-gradient(to right, #ff416c, #ff4b2b);
+      border: none;
+      color: white;
+      font-weight: bold;
+      border-radius: 30px;
+      cursor: pointer;
+      font-size: 18px;
+      box-shadow: 0 5px 15px rgba(255, 65, 108, 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .submit-btn:hover {
+      transform: scale(1.05);
+      background: linear-gradient(to right, #ff4b2b, #ff416c);
+      box-shadow: 0 8px 20px rgba(255, 65, 108, 0.7);
+    }
+
+    .footer-link {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 14px;
+    }
+
+    .footer-link a {
+      color: #ff416c;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-link a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="signup-container">
+    <h2>Create Your Account</h2>
+    <!-- POST form to backend Flask route -->
+    <form method="POST" action="{{ url_for('signup') }}">
+      <!-- Flash messages to display errors -->
+      {% with messages = get_flashed_messages() %}
+        {% if messages %}
+          <div style="color: red;">
+            <ul>
+              {% for message in messages %}
+                <li>{{ message }}</li>
+              {% endfor %}
+            </ul>
+          </div>
+        {% endif %}
+      {% endwith %}
+      
+      <div class="form-group">
+        <label for="fullname">Full Name</label>
+        <input type="text" id="fullname" name="fullname" required />
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" required />
+      </div>
+
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" name="username" required />
+      </div>
+
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required />
+      </div>
+
+      <div class="form-group">
+        <label for="confirm">Confirm Password</label>
+        <input type="password" id="confirm" name="confirm" required />
+      </div>
+
+      <button type="submit" class="submit-btn">Sign Up</button>
+    </form>
+
+    <p>Already have an account? <a href="{{ url_for('login') }}">Login here</a></p>
+
+  </div>
+
+</body>
+</html>

@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Add and View Books</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: linear-gradient(to right, #fbc2eb, #a6c1ee);
+      margin: 0;
+      padding: 20px;
+    }
+
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    h2 {
+      text-align: center;
+      color: #333;
+    }
+
+    form {
+      display: grid;
+      gap: 15px;
+      margin-top: 20px;
+    }
+
+    input,
+    button {
+      padding: 10px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+    }
+
+    button {
+      background: #007BFF;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button:hover {
+      background: #0056b3;
+    }
+
+    table {
+      width: 100%;
+      margin-top: 30px;
+      border-collapse: collapse;
+    }
+
+    th,
+    td {
+      border: 1px solid #ddd;
+      padding: 12px;
+      text-align: left;
+    }
+
+    th {
+      background: #007BFF;
+      color: white;
+    }
+
+    .back-btn {
+      margin-top: 20px;
+      display: inline-block;
+      padding: 10px 20px;
+      background: #28a745;
+      color: white;
+      text-decoration: none;
+      border-radius: 6px;
+      transition: background 0.3s;
+    }
+
+    .back-btn:hover {
+      background: #218838;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <h2>Add and View Books</h2>
+
+    <form method="POST" action="{{ url_for('add_view_books') }}">
+        <input type="text" name="title" id="title" placeholder="Book Title" required>
+        <input type="text" name="author" id="author" placeholder="Author" required>
+        <input type="number" name="year" id="year" placeholder="Year" required>
+        <button type="submit">Add Book</button>
+    </form>
+
+    <h3>Books in Library:</h3>
+    <table>
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Author</th>
+                <th>Year</th>
+            </tr>
+        </thead>
+        <tbody id="tableBody">
+            {% for book in books %}
+            <tr>
+                <td>{{ book.title }}</td>
+                <td>{{ book.author }}</td>
+                <td>{{ book.year }}</td>
+                <td>
+                  <form method="POST" action="{{ url_for('delete_book', book_id=book.id) }}" onsubmit="return confirm('Are you sure you want to delete this book?');">
+                    <button type="submit" style="background-color: red; color: white; border: none; padding: 5px 10px; border-radius: 4px;">Delete</button>
+                  </form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ url_for('dashboard') }}" class="back-btn">Back to Dashboard</a>
+  </div>
+  <script>
+    document.querySelector('form').addEventListener('submit', function(e) {
+      const btn = this.querySelector('button[type="submit"]');
+      btn.disabled = true;
+      btn.innerText = 'Submitting...';
+    });
+  </script>
+</body>
+
+</html>

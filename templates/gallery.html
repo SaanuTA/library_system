@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Library Management System - Gallery</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Quicksand:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Quicksand', sans-serif;
+      background: linear-gradient(135deg, #e1f5fe, #ffecb3, #dcedc8, #f8bbd0);
+      background-size: 400% 400%;
+      animation: bgShift 25s ease infinite;
+      color: #333;
+    }
+
+    @keyframes bgShift {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    header, footer {
+      background: linear-gradient(to right, #ab47bc, #7e57c2, #42a5f5, #26a69a);
+      color: white;
+      padding: 20px 40px;
+      text-align: center;
+      animation: fadeIn 2s ease;
+    }
+
+    .logo {
+      font-size: 32px;
+      font-family: 'Playfair Display', serif;
+      text-shadow: 1px 1px 2px #333;
+    }
+
+    .hero {
+      text-align: center;
+      padding: 60px 20px 30px;
+      color: #4a148c;
+      animation: fadeUp 2s ease;
+    }
+
+    .hero h1 {
+      font-size: 48px;
+      margin-bottom: 20px;
+    }
+
+    .hero p {
+      font-size: 18px;
+      font-weight: 600;
+      max-width: 800px;
+      margin: 0 auto;
+    }
+
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(50px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 30px;
+      padding: 40px 20px;
+      place-items: center;
+    }
+
+    .gallery figure {
+      margin: 0;
+      text-align: center;
+      animation: slideIn 1s ease forwards;
+      animation-delay: calc(var(--i) * 0.2s);
+    }
+
+    @keyframes slideIn {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .gallery img {
+      width: 100%;
+      max-width: 340px;
+      height: 240px;
+      object-fit: cover;
+      border-radius: 20px;
+      border: 5px solid transparent;
+      background: linear-gradient(45deg, #ff4081, #7c4dff, #448aff, #00e5ff);
+      background-size: 600% 600%;
+      animation: borderGlow 10s ease infinite;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      transition: transform 0.3s ease;
+    }
+
+    @keyframes borderGlow {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .gallery img:hover {
+      transform: scale(1.08);
+      box-shadow: 0 15px 40px rgba(0, 0, 0, 0.5);
+    }
+
+    .gallery figcaption {
+      margin-top: 10px;
+      font-size: 16px;
+      font-weight: 600;
+      color: #6a1b9a;
+      transition: color 0.3s, transform 0.3s;
+    }
+
+    .gallery figcaption:hover {
+      color: #ff6f00;
+      transform: scale(1.05);
+    }
+
+    footer {
+      font-size: 14px;
+      border-top-left-radius: 18px;
+      border-top-right-radius: 18px;
+      margin-top: 50px;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo">📚 Library Management System - Gallery</div>
+</header>
+
+<section class="hero">
+  <h1> Library Gallery</h1>
+  <p>Step into vibrant spaces of imagination and learning — from vintage halls to modern reading zones.</p>
+</section>
+
+<section class="gallery">
+  <figure style="--i:1">
+    <img src="https://images.pexels.com/photos/1370295/pexels-photo-1370295.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Elegant Library Exterior">
+    <figcaption>"Where stories begin at the doorstep."</figcaption>
+  </figure>
+
+  <figure style="--i:2">
+    <img src="https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=800&q=80" alt="Open Book">
+    <figcaption>"Each page unlocks a new dimension."</figcaption>
+  </figure>
+
+  <figure style="--i:3">
+    <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=800&q=80" alt="Reading Room">
+    <figcaption>"Peace lives in a quiet reading corner."</figcaption>
+  </figure>
+
+  <figure style="--i:4">
+    <img src="https://images.pexels.com/photos/1290141/pexels-photo-1290141.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Bookshelf">
+    <figcaption>"A shelf full of doors to other worlds."</figcaption>
+  </figure>
+
+  <figure style="--i:5">
+    <img src="https://images.pexels.com/photos/3646172/pexels-photo-3646172.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Modern Library">
+    <figcaption>"Where design meets knowledge."</figcaption>
+  </figure>
+
+  <figure style="--i:6">
+    <img src="https://images.pexels.com/photos/256559/pexels-photo-256559.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Vintage Library">
+    <figcaption>"Whispers of the past echo in every corner."</figcaption>
+  </figure>
+
+  <figure style="--i:7">
+    <img src="https://images.pexels.com/photos/256431/pexels-photo-256431.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Student Library">
+    <figcaption>"Knowledge blooms in young minds."</figcaption>
+  </figure>
+
+  <figure style="--i:8">
+    <img src="https://images.pexels.com/photos/256541/pexels-photo-256541.jpeg?auto=compress&cs=tinysrgb&w=600" alt="Children Reading">
+    <figcaption>"Where every child becomes a curious explorer."</figcaption>
+  </figure>
+</section>
+
+<footer>
+  &copy; 2025 Library Management System. All rights reserved.
+</footer>
+
+</body>
+</html>
+
+
